@@ -9,7 +9,9 @@ import { ToastController } from '@ionic/angular';
   providers: [NFC, Ndef]
 })
 export class HomePage {
-  idNFC: string;
+  idNFCbytesToHexString: string;
+  idNFCbytesToString: string;
+  idNFCstringToBytes : any;
   techTypes: string;
 
   constructor(
@@ -27,7 +29,14 @@ export class HomePage {
     this.nfc.readerMode(flags).subscribe((tag) => {
       let tagStringify = JSON.stringify(tag);
       
-      this.idNFC = JSON.stringify(tag.id);
+      this.idNFCbytesToHexString = this.nfc.bytesToHexString(tag.id);
+      this.idNFCbytesToString = this.nfc.bytesToString(tag.id);
+      this.idNFCstringToBytes = this.nfc.stringToBytes(this.idNFCbytesToString);
+    
+      console.log(' idNFCbytesToHexString ===> ' + this.idNFCbytesToHexString );
+      console.log(' idNFCbytesToString ===> ' + this.idNFCbytesToString );
+      console.log(' idNFCstringToBytes ===> ' + this.idNFCstringToBytes );
+
       this.techTypes = JSON.stringify(tag.techTypes);
 
       this.presentToastWithOptions(tagStringify);
