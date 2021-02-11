@@ -24,6 +24,10 @@ export class HomePage {
     this.cekAndroidNFC();
   }
 
+  Setting(){
+    this.nfc.showSettings();
+  }
+
   cekAndroidNFC() {
     let flags = this.nfc.FLAG_READER_NFC_A | this.nfc.FLAG_READER_NFC_V;
     this.nfc.readerMode(flags).subscribe((tag) => {

@@ -9,9 +9,22 @@
     <h1>Reading NFC</h1>
     <ion-card class="ion-no-margin">
       <ion-card-header>
-        <ion-card-title>ID : {{ idNFC }}</ion-card-title>
+        <ion-card-title>ID : {{ idNFCbytesToHexString }}</ion-card-title>
       </ion-card-header>
+      <ion-card-content> idNFCbytesToHexString : {{ idNFCbytesToHexString }} </ion-card-content>
+      <ion-card-content> idNFCbytesToString : {{ idNFCbytesToString }} </ion-card-content>
+      <ion-card-content> idNFCstringToBytes : {{ idNFCstringToBytes }} </ion-card-content>
       <ion-card-content> techTypes : {{ techTypes }} </ion-card-content>
     </ion-card>
   </div>
 </ion-content>
+
+<ion-footer no-border>
+  <ion-card expand="block">
+    <div style="text-align: center;">
+      <section>
+        <ion-button color="success" expand="block" (click)="Setting()" >Setting</ion-button>
+      </section>
+    </div>
+  </ion-card>
+</ion-footer>
